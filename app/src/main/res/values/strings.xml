@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Coding Test</string>
+    <string name="foo">Lorem Ipsum</string>
+    <string name="label_last_games">Last Games</string>
+    <string name="label_search">Pencarian</string>
+</resources>

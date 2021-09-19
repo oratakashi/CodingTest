@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.search.SearchActivity">
+
+    <ImageView
+        android:id="@+id/ivBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_16"
+        android:src="@drawable/ic_back"
+        app:layout_constraintBottom_toBottomOf="@+id/etSearch"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/etSearch" />
+
+    <com.ndroid.CoolEditText
+        android:id="@+id/etSearch"
+        style="@style/searchFlat"
+        android:imeOptions="actionDone"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_16"
+        android:layout_marginTop="@dimen/margin_16"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ivBack"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.kennyc.view.MultiStateView
+        android:id="@+id/msvSearch"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/margin_16"
+        app:msv_animateViewChanges="true"
+        app:msv_loadingView="@layout/layout_loading"
+        app:msv_errorView="@layout/layout_error"
+        app:msv_emptyView="@layout/layout_default"
+        app:msv_viewState="empty"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etSearch">
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/srSearch"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etSearch">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvSearch"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    </com.kennyc.view.MultiStateView>
+</androidx.constraintlayout.widget.ConstraintLayout>
